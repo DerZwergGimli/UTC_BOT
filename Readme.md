@@ -4,12 +4,13 @@
 
 A simple Discord BOT displaying the current time in UTC written in Rust.
 
+Easy deployment with Docker and ENVs.
+
 ## View
 
 ![bot view](bot_view_discord.png)
 
 ## Commands:
-- 
 
 - `+time` Prints out the time
 
