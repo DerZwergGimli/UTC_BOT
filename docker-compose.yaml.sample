@@ -1,0 +1,14 @@
+version: "3"
+services:
+  utcbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: utcbot
+    environment:
+      DISCORD_TOKEN: "YOUR-TOKEN"
+      LOG_LEVEL: "INFO"
+
+    restart: unless-stopped
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
