@@ -1,15 +1,4 @@
-//! Requires the 'framework' feature flag be enabled in your project's
-//! `Cargo.toml`.
-//!
-//! This can be enabled by specifying the feature in the dependency section:
-//!
-//! ```toml
-//! [dependencies.serenity]
-//! git = "https://github.com/serenity-rs/serenity.git"
-//! features = ["framework", "standard_framework"]
-//! ```
 use std::{collections::HashSet, env, sync::Arc};
-use std::sync::atomic::{AtomicBool, Ordering};
 use std::time::Duration;
 
 use env_logger::Env;
@@ -22,7 +11,7 @@ use serenity::{
     model::{event::ResumedEvent, gateway::Ready},
     prelude::*,
 };
-use serenity::futures::StreamExt;
+
 use serenity::model::id::GuildId;
 
 use commands::{math::*, meta::*, owner::*, time::*};
@@ -40,7 +29,6 @@ impl TypeMapKey for ShardManagerContainer {
 }
 
 struct Handler {
-    is_loop_running: AtomicBool,
 }
 
 
@@ -59,26 +47,8 @@ impl EventHandler for Handler {
 
         loop {
             time::change_display_name(&ctx.http,&_guilds).await;
-
             tokio::time::sleep(Duration::from_secs(120)).await;
         }
-
-        /*
-                if !self.is_loop_running.load(Ordering::Relaxed) {
-                    let ctx1 = Arc::clone(&ctx);
-                    tokio::spawn(async move {
-                        loop {
-                            time::change_display_name(Arc::clone(&ctx1)).await;
-
-                            //log_system_load(Arc::clone(&ctx1)).await;
-                            info!("Pooping");
-
-                            tokio::time::sleep(Duration::from_secs(120)).await;
-                        }
-                    });
-
-                    self.is_loop_running.swap(true, Ordering::Relaxed);
-                }*/
     }
 }
 
@@ -115,9 +85,7 @@ async fn main() {
 
     let mut client = Client::builder(&token)
         .framework(framework)
-        .event_handler(Handler {
-            is_loop_running: AtomicBool::new(false),
-        })
+        .event_handler(Handler{})
         .await
         .expect("Err creating client");
 
