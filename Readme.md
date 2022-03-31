@@ -27,16 +27,21 @@ Easy deployment with Docker and ENVs.
         2. BOT PERMISSIONS: Change Nickname, Manage Nicknames
 
 2. Clone repo
-3. Copy `docker.compose.yaml.sample` to `docker.compose.yaml`
-4. Edit `docker.compose.yaml`
-5. Run `docker-compose up -d`
+3. Move into dir `cd UTC_BOT`
+4. Copy `docker.compose.yaml.sample` to `docker.compose.yaml`
+5. Edit `nano docker.compose.yaml` enter your Discord-Token
+6. Start with  `docker-compose up -d`
+7. Invite the bot into you discord servers
 
 ## Environment Variables:
+
 ```
 - DISCORD_TOKEN: <DISCORD_TOKEN>
 - LOG_LEVEL: "INFO"
 ```
+
 ## Development:
+
 - RustC + Cargo
 - cargo install cargo-chef
 - cargo chef prepare --recipe-path recipe.json
