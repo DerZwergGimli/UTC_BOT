@@ -14,7 +14,7 @@ use serenity::{
 
 use serenity::model::id::GuildId;
 
-use commands::{math::*, meta::*, owner::*, time::*};
+use commands::{ time::*};
 
 use crate::commands::time;
 
@@ -53,7 +53,7 @@ impl EventHandler for Handler {
 }
 
 #[group]
-#[commands(multiply, ping, quit, time)]
+#[commands(time)]
 struct General;
 
 #[tokio::main]

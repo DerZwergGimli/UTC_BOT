@@ -2,14 +2,16 @@
 
 ![bot icon](icon.drawio.png)
 
-A simple Discord BOT displaying the current time in UTC.
+A simple Discord BOT displaying the current time in UTC written in Rust.
 
 ## View
 
 ![bot view](bot_view_discord.png)
 
 ## Commands:
- - `+time` Prints out the time
+- 
+
+- `+time` Prints out the time
 
 ## Requirements:
 
@@ -28,11 +30,16 @@ A simple Discord BOT displaying the current time in UTC.
 4. Edit `docker.compose.yaml`
 5. Run `docker-compose up -d`
 
+## Environment Variables:
+```
+- DISCORD_TOKEN: <DISCORD_TOKEN>
+- LOG_LEVEL: "INFO"
+```
 ## Development:
-
+- RustC + Cargo
 - cargo install cargo-chef
 - cargo chef prepare --recipe-path recipe.json
 
-### Donations
+### Donations:
 
 Solana-Wallet domain: `coffeeplease.sol`
