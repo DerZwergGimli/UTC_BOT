@@ -5,7 +5,6 @@ services:
   #  build:
   #    context: .
   #    dockerfile: Dockerfile
-    image: utcbot
     environment:
       DISCORD_TOKEN: "YOUR-TOKEN"
       LOG_LEVEL: "INFO"
