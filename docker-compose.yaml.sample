@@ -1,9 +1,10 @@
 version: "3"
 services:
   utcbot:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  image: derzwerggimli/utcbot
+  #  build:
+  #    context: .
+  #    dockerfile: Dockerfile
     image: utcbot
     environment:
       DISCORD_TOKEN: "YOUR-TOKEN"
